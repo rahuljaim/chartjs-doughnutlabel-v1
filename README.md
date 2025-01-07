@@ -13,7 +13,7 @@ Import the plugin:
 
 ```bash
 import Chart from 'chart.js';
-import DoughnutLabelPlugin from 'chartjs-doughnutlabel-plugin';
+import DoughnutLabelPlugin from 'chartjs-doughnutlabel-v1';
 
 Chart.register(DoughnutLabelPlugin);
 
@@ -22,27 +22,56 @@ Chart.register(DoughnutLabelPlugin);
 Add the doughnutLabel options in your chart configuration:
 
 ```bash
-const options = {
-  plugins: {
-    doughnutLabel: {
-      labels: [
-        {
-          text: 'Total',
-          font: {
-            size: 20,
-            weight: 'bold',
+import Chart from 'chart.js/auto';
+import DoughnutLabelPlugin from 'chartjs-doughnutlabel-v1';
+
+Chart.register(DoughnutLabelPlugin);
+
+// Example usage:
+const ctx = document.getElementById('myChart').getContext('2d');
+const data = {
+  datasets: [
+    {
+      data: [10, 20, 30],
+      backgroundColor: ['red', 'blue', 'green'],
+    },
+  ],
+  labels: ['Red', 'Blue', 'Green'],
+};
+
+const getTotal = (chart) =>
+  `Total: ${chart.config.data.datasets[0].data.reduce((a, b) => a + b, 0)}`;
+
+const myDoughnutChart = new Chart(ctx, {
+  type: 'doughnut',
+  data,
+  options: {
+    plugins: {
+      doughnutlabel: {
+        labels: [
+          {
+            text: 'The title',
+            font: { size: 60 },
           },
-        },
-        {
-          text: '450',
-          font: {
-            size: 24,
-            weight: 'bold',
+          {
+            text: getTotal,
+            font: { size: 50 },
+            color: 'grey',
           },
-          color: '#36A2EB',
-        },
-      ],
+          {
+            text: '$100.000',
+            font: { size: 30 },
+            color: 'red',
+          },
+          {
+            text: '95%',
+            font: { size: 45 },
+            color: 'green',
+          },
+        ],
+      },
     },
   },
-};
+});
+
 ```
