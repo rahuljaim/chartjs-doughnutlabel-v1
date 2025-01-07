@@ -1,0 +1,21 @@
+{
+  "name": "chartjs-doughnutlabel-v1",
+  "version": "1.0.0",
+  "description": "A custom Chart.js plugin to add labels to the center of a doughnut chart.",
+  "main": "index.js",
+  "module": "index.js",
+  "peerDependencies": {
+    "chart.js": "^4.0.0"
+  },
+  "keywords": ["chart.js", "doughnut", "plugin", "label"],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/rahuljaim/chartjs-doughnutlabel-v1.git"
+  },
+  "author": "Your Name",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/rahuljaim/chartjs-doughnutlabel-v1/issues"
+  },
+  "homepage": "https://github.com/rahuljaim/chartjs-doughnutlabel-v1#readme"
+}
